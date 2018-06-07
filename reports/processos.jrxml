@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="processos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7c86cf59-9f82-4ac1-91c5-ef7b8cee1f2f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bdgerenciadordeprocessos"/>
+	<queryString language="SQL">
+		<![CDATA[select autor, numeroProcesso, vara from processo  order by Autor]]>
+	</queryString>
+	<field name="autor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="autor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="processo"/>
+	</field>
+	<field name="numeroProcesso" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="numeroProcesso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="processo"/>
+	</field>
+	<field name="vara" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="vara"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="processo"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="20" width="110" height="25" uuid="050eaaea-c7f3-43e6-80ec-9b7ffe623508"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[PROCESSOS]]></text>
+			</staticText>
+			<textField pattern="&apos;PDF gerado em&apos; dd &apos;de&apos; MMMMM, yyyy">
+				<reportElement x="300" y="0" width="180" height="20" uuid="f4c0a35b-ce46-4190-a9f1-7104af07b045"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="50" width="544" height="1" uuid="0c08ab03-cce9-4a95-8342-5082f3b5d279"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="190" height="30" uuid="fdccf8f0-a7b0-4eaf-98b7-b5ff540662b0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea654813-4bcb-4f2c-853d-7fa2d3c27339"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[AUTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="190" height="30" uuid="6a648320-a717-43c2-93b3-b55cbab37950">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5136536-c5d0-4caf-809c-d38445746d0f"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NÚMERO DO PROCESSO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="186" height="30" uuid="ffccc430-747d-457d-b985-58cd17d913f4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2f4d8cd-6d93-4f06-9520-36f18e85a0d1"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[VARA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="190" height="30" uuid="5c709c38-32a2-4ca6-b376-e6dc77c94732">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea654813-4bcb-4f2c-853d-7fa2d3c27339"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{autor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="188" height="30" uuid="a2667550-a79d-43a2-b81c-acdc620d8aa6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e5136536-c5d0-4caf-809c-d38445746d0f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{numeroProcesso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="187" height="30" uuid="cbb76517-fed0-47c4-815a-42cdf570b578">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2f4d8cd-6d93-4f06-9520-36f18e85a0d1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{vara}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="24" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="450" y="0" width="58" height="21" uuid="fca40f15-e682-4d20-92b4-f65f9aa58870"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="508" y="0" width="15" height="21" uuid="051e6833-989b-4fcb-a549-9ca2bc6ef46a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="24" splitType="Stretch"/>
+	</summary>
+</jasperReport>
